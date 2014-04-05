@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+  <h1>Daftar Registrasi</h1>
+  <table class="table table-striped">
+    <tr>
+      <th>Nama</th>
+    <th>Email</th>
+  </tr>
+{{#items}}
+  <tr>
+    <td><a href="/registrasi/list?id={{_id}}">{{nama}}</a></td>
+    <td>{{surel}}</td>
+    </tr>
+{{/items}}
+  </table>
+
+{{#singleData}}
+<h1>Edit</h1>
+<form class="form-horizontal" role="form" action="/registrasi/list" method="post">
+<input type="hidden" name="id" value="{{_id}}">
+	<div class="form-group">
+		<label for="nama" class="col-sm-2 control-label">Nama</label>
+		<div class="col-sm-6">
+			<input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan nama" value="{{nama}}">
+		</div>
+	</div>  
+	
+	<div class="form-group">
+    <label for="surel" class="control-label col-sm-2">Email address</label>
+		<div class="col-sm-6">
+			<input id="surel" type="email" class="form-control" name="surel" placeholder="Enter email" value="{{surel}}">
+		</div>
+	</div>
+  <button type="submit" class="btn btn-primary">Simpan</button>
+</form>
+{{/singleData}}
+</body>
+</html>
